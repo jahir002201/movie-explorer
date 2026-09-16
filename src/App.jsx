@@ -1,13 +1,33 @@
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import MainLayout from "./layouts/MainLayout.jsx";
+import Home from "./pages/Home.jsx";
+import Movies from "./pages/Movies.jsx";
 
-function App() {
+
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: '/movies',
+        element: <Movies />
+      }
+    ]
+  }
+])
+
+const Router = () => {
 
   return (
-    <>
-    <h1 className="text-3xl font-bold text-center text-teal-500">
-      Hello world!
-    </h1>
-    </>
+    <RouterProvider router={router} />
   )
 }
 
-export default App
+export default Router
