@@ -1,17 +1,32 @@
-import { Link } from 'react-router'
+import { TbMovie } from "react-icons/tb";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 bg-teal-800 text-white px-4 py-4 sm:py-6">
-        <nav className="flex items-center justify-between">
-            <div className="text-xl font-bold">Movie Explorer</div>
-            <div className="flex space-x-4">
-                <Link to="/" className="hover:text-gray-300">Home</Link>
-                <Link to="/movies" className="hover:text-gray-300">Movies</Link>
-            </div>
-        </nav>
-    </header>
-  )
-}
+    <header className="sticky top-0 z-50 border-b border-teal-700 bg-teal-800 px-4 py-3 text-white sm:py-4">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="flex items-center text-lg font-bold sm:text-2xl"
+        >
+          <TbMovie className="mr-2 text-4xl sm:text-5xl" />
+          <span>Movie Explorer</span>
+        </Link>
 
-export default Navbar
+        {/* Navigation */}
+        <div className="flex items-center gap-3 sm:gap-6">
+          < Link to="/" className="font-medium text-white transition hover:text-teal-200">
+            Home
+          </Link>
+
+          <Link to="/movies" className="font-medium text-white transition hover:text-teal-200">
+            Movies
+          </Link>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;
